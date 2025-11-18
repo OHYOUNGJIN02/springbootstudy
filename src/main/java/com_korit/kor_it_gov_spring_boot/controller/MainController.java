@@ -47,4 +47,9 @@ public class MainController {
         return "search.html";
 
     }
+    @GetMapping("/signup")
+    public String signup(Model model) {
+        return "signup";
+    }
+
 }
