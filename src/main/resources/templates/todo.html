@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>할 일 등록</title>
+</head>
+<body>
+    <form th:action="@{/signup2}" method = post>
+    이름 : <input type = "text" name = "name"></br>
+    나이 : <input type = "number" name = "age"></br>
+    할 일 :<input type = "text" name = "todo"></br>
+        <button type = "submit">가입하기</button>
+    </form>
+
+</body>
+</html>
