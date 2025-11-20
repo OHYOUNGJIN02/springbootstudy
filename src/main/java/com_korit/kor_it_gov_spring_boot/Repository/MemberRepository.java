@@ -1,0 +1,38 @@
+package com_korit.kor_it_gov_spring_boot.Repository;
+
+import com_korit.kor_it_gov_spring_boot.Entity.Member;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+public class MemberRepository {
+    private static MemberRepository instance;
+    private List<Member> memberList;
+
+    private MemberRepository() {
+        memberList = new ArrayList<>();
+    }
+
+    public static MemberRepository getInstance() {
+        if (instance == null) {
+            instance = new MemberRepository();
+        }
+        return instance;
+    }
+
+    public Member findMemberByName(String name){
+        return memberList.stream().filter(member -> member.getName().equals(name))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public void addMember(Member member){
+        member.setMemberId(memberList.size() + 1);
+        memberList.add(member);
+    }
+
+    public List<Member> getMemberAll(){
+        return memberList;
+    }
+}
